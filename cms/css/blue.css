@@ -1,0 +1,62 @@
+a {
+	color: #0078cc;
+}
+                
+.button {
+	background: #004a95 url('../img/bg-button-blue.gif') top left repeat-x !important;
+	border-color: #004994 !important;
+}
+
+.buttonpromo {
+	background: #004a95 url('../img/bg-button-blue.gif') top left repeat-x !important;
+	border: 1px solid #459300 !important;
+    color: #fff !important;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 11px !important;
+	margin: 50px 0 0;
+    -border-radius: 4px 4px 4px 4px;
+    -moz-border-radius: 4px 4px 4px 4px;	
+    -webkit-border-radius: 4px 4px 4px 4px;
+    padding: 4px 7px !important;		
+}
+.buttonpromo:hover {
+	text-decoration:underline;
+}
+
+#sidebar #main-nav li a.nav-top-item {
+	background: transparent url('../img/bg-menu-item-blue.gif') right center no-repeat;
+}
+
+ul.content-box-tabs li a:hover {
+	color: #0078cc;
+}              
+                
+.pagination a.current {
+	background: #004a95 url('../img/bg-button-blue.gif') top left repeat-x !important;
+	border-color: #004994 !important;
+}
+				
+.action-button span:hover {
+	color: #0078cc;0; 
+}
+
+.btnvoltar {
+    background: url("../img/bg-button-blue.gif") repeat-x scroll left top #004A95 !important;
+    border: 1px solid #459300 !important;
+    color: #FFFFFF !important;
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    font-family: Verdana,Arial,sans-serif;
+    font-size: 11px !important;
+    margin: 5px 10px 0 0;
+    -moz-border-radius: 4px 4px 4px 4px;
+    padding: 8px !important;
+}
+.btnvoltar:hover {
+	text-decoration:underline;
+}
+
+
+

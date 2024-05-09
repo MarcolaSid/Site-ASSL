@@ -1,0 +1,119 @@
+#Send the language tag and default character set
+#AddType 'text/html; charset=UTF-8' html
+AddDefaultCharset UTF-8
+DefaultLanguage pt-BR
+
+AddType application/x-httpd-php .xml
+
+#Previne visualizacao de diretorios que nao tenham um index.
+Options All -Indexes
+
+#Desabilitar a assinatura do servidor faz com que nao se saiba que se esta utilizando o Apache.
+ServerSignature Off
+
+#Previne listagem de pastas
+IndexIgnore *
+
+#Define o email do administrador
+SetEnv SERVER_ADMIN admin@webferas.com
+
+#INICIA GZIP
+<ifmodule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css text/x-js application/x-javascript application/javascript
+BrowserMatch ^Mozilla/4 gzip-only-text/html
+BrowserMatch ^Mozilla/4\.0[678] no-gzip
+BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+</ifmodule>
+
+#Implementa cache minimo durante o desenvolvimento do site
+# <FilesMatch "\.(flv|gif|jpg|jpeg|png|ico|js|css|pdf|swf|html|htm|txt)$">
+# Header set Cache-Control "max-age=5"
+# </FilesMatch>
+
+#Desabilita o cache para scripts e outros arquivos dinamicos
+<FilesMatch "\.(pl|php|cgi|spl|scgi|fcgi)$">
+Header unset Cache-Control
+</FilesMatch>
+
+# INICIA CACHE
+# MES
+<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|swf)$">
+Header set Cache-Control "max-age=2419200, public"
+</FilesMatch>
+
+# SEMANA
+<FilesMatch "\.(js|css)$">
+ Header set Cache-Control "max-age=604800, public"
+</FilesMatch>
+# FINALIZA CACHE
+
+#Minimiza ou ate elimina o ''flickering' no CSS da imagem de background no IE6
+# ExpiresActive On
+# ExpiresByType image/gif A2592000
+# ExpiresByType image/jpg A2592000
+# ExpiresByType image/png A2592000
+
+<IfModule mod_rewrite.c>
+# Tell PHP that the mod_rewrite module is ENABLED.
+SetEnv HTTP_MOD_REWRITE On
+
+Options +FollowSymLinks
+RewriteEngine on
+RewriteBase /
+
+# If we receive a forwarded http request from a proxy...
+RewriteCond %{HTTP:X-Forwarded-Proto} =http [OR]
+
+# ...or just a plain old http request directly from the client
+RewriteCond %{HTTP:X-Forwarded-Proto} =""
+RewriteCond %{HTTPS} !=on
+
+# Redirect to https version
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# RewriteCond %{HTTP_HOST} ^assl.com.br [NC]
+# RewriteRule ^(.*)$ https://www.assl.com.br/$1 [L,R=301]
+
+#Prevent PHP-CGI remote code execution bug
+RewriteCond %{QUERY_STRING} ^[^=]*$
+RewriteCond %{QUERY_STRING}  8|\- [NC]
+RewriteRule .? - [F,L]
+
+RewriteRule ^index\.php$ index.php [L]
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+
+RewriteRule ^$ index.php [L,QSA]
+RewriteRule ^index.html$ index.php [L,QSA]
+RewriteRule ^empresa.html$ empresa.php [L,QSA]
+RewriteRule ^servicos.html$ servicos.php [L,QSA]
+RewriteRule ^portfolio.html$ portfolio.php [L,QSA]
+RewriteRule ^contato.html$ contato.php [L,QSA]
+
+RewriteCond %{REQUEST_URI} !^/images/(.*)
+RewriteCond %{REQUEST_URI} !^/js/(.*)
+RewriteCond %{REQUEST_URI} !^/css/(.*)
+
+# #Stop hotlinking and serve alternate content
+# RewriteCond %{HTTP_REFERER} !^$
+# RewriteCond %{HTTP_REFERER} !^http://(www\.)?assl\.com\.br/.*$ [NC]
+# RewriteRule .*\.(gif|jpg)$ http://www.assl.com.br/assl.jpg [R,NC,L]
+
+#Deny access to evil robots site rippers offline browsers and other nasty scum
+RewriteCond %{HTTP_USER_AGENT} ^Anarchie [OR]
+RewriteCond %{HTTP_USER_AGENT} ^ASPSeek [OR]
+RewriteCond %{HTTP_USER_AGENT} ^attach [OR]
+RewriteCond %{HTTP_USER_AGENT} ^autoemailspider [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Xaldon\ WebSpider [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Xenu [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Zeus.*Webster [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Zeus
+# send em to a virtual blackhole of fake email addresses
+RewriteRule ^.*$ http://english-61925045732.spampoison.com [R,L]
+
+# protect against DOS attacks by limiting file upload size (aprox 10mb)
+LimitRequestBody 10240000
+</IfModule>
+
+#ErrorDocument 404 /404.html

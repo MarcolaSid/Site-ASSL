@@ -1,0 +1,79 @@
+/* -- Global Links & Background Colours --*/
+a { 
+	color: #F9E509;
+}
+a:hover {
+	color: #f8f8f8;
+}
+#social-icon-container ul li div, .toplink, .text-wrapper:hover .text-heading-wrapper, ul#comments .author_mark, .contact-success, .no-rgba .hover a span, .hover a span strong, .post-out-text:hover .header-container .date, .coda-nav ul li a.current {
+	color: #333;
+	background-color: #F9E509;
+}
+
+/* -- Nav Menu Colours --*/
+.menu ul li a.selected, .menu ul li a:hover,.menu ul li ul li a:link {
+	color: #333;
+	background-color: #F9E509;	
+}
+.menu ul li ul li a:visited {
+	color: #333;
+	background-color: #F9E509;	
+}
+.menu ul li ul li a:hover{
+	color: #333;
+	background-color: #92cc3f;
+}
+/* -- Nav Text Color -- */
+.menu ul li a:link, .menu ul li a:visited, .menu ul li ul li a:link, .menu ul li a:visited {
+	color: #F9E509;
+	text-shadow: 0 -1px 0px rgba(0,0,0,.2);
+}
+.menu ul li a:hover {
+	color: #333;
+	text-shadow: 0 -1px 0px rgba(0,0,0,.2);
+}
+
+/* -- Header, Footer, Big Quote Background, Post Date --*/
+body, #header-wrapper, .big-quote, .post-out-text .header-container .date {
+	background-color: #121212;
+}
+
+/* -- Header Strip --*/
+#header-wrapper {
+	border-top: 2px solid #F9E509;
+}
+
+/* -- Page Header & Footer Background --*/
+#pageheader-background, #footer-wrapper {
+	background-image:  url(../images/fundo.png);
+}
+
+/* -- Page Header & Footer Text Color --*/
+#pageheader-background, .pageheader-title h1, .pageheader-title h2, .pageheader-title h3, .pageheader-title h4, .pageheader-title h5, .pageheader-title h6, .pageheader-title p, #footer-wrapper, #footer-container h1, #footer-container h2, #footer-container h3, #footer-container h4, #footer-container h5, #footer-container h6, #footer-container p, #jstwitter .tweet {
+	color: #fff !important;
+	text-shadow: 0 -1px 0px rgba(0,0,0,.2);
+}
+
+/* -- Default Button Colour --*/
+.button, .button-big, .button:active, .button-big:active, .button:focus, .button-big:focus {
+	background-color: #F9E509;	
+}
+
+/* -- Main Page Background --*/
+#body-background, .element-text {
+	background-color: #333;
+}
+
+/*-- SideBar Nav --*/
+ul.sidebar li a{
+	border-left-color: #F9E509;
+}
+
+/*-- Footer Social Icons --*/
+#social-icon-container ul li div .arrow, .toplink div.arrow {
+	border-bottom: 10px solid #F9E509;
+}
+
+/* -- Selection Colors --*/
+::-moz-selection{ color: #fff; background: rgba(83,198,212,.5); }
+::selection { color: #fff; background: rgba(83,198,212,.5); }

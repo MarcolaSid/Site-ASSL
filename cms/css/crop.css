@@ -1,0 +1,133 @@
+body {
+    background-color: #FFFFFF;
+    color: #000000;
+    font: 14px helvetica,arial,sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 20px;
+    width: 100%;
+}
+.clear {
+    clear: both;
+}
+.centro {
+    text-align: center !important;
+}
+.direita {
+    text-align: right !important;
+}
+.esquerda {
+    text-align: left !important;
+}
+.fl_right {
+    float: right;
+}
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.clearfix {
+    display: inline-block;
+}
+.clearfix {
+    display: block;
+}
+h1 {
+    color: #FF3366;
+    letter-spacing: -3px;
+    text-transform: uppercase;
+}
+a img {
+    border: medium none;
+}
+form {
+}
+div#div-jcrop {
+    background-color: #F2F2F2;
+    margin: 12px;
+	min-height: 320px;
+    padding: 12px;
+    width: 530px;
+}
+#tit-jcrop a {
+    color: #216041;
+    font-size: 12px;
+}
+.custom .jcrop-vline, .custom .jcrop-hline {
+    background: none repeat scroll 0 0 #FF3366 !important;
+}
+div#topbar {
+    -moz-border-radius: 6px 6px 6px 6px;
+    background-color: #CCCCCC;
+    margin: 0 0 12px;
+    padding: 12px;
+    width: 90%;
+}
+div#topbar ul {
+    list-style: none outside none;
+}
+div#topbar ul li {
+    float: left;
+    margin: 0 12px 0 0;
+}
+div#div-preview {
+    background-color: #CCCCCC;
+    border: 12px solid #CCCCCC;
+    float: right;
+    height: 100px;
+    margin: 150px -3px 0 0;
+    overflow: hidden;
+    width: 100px;
+    z-index: 120;
+}
+div#debug {
+ 	color: #666666;
+    float: left;
+    height: 42px;
+	margin: -275px 0 0 425px;
+	position: absolute;
+}
+div#debug p {
+    margin: 4px;
+}
+div#debug strong {
+    display: block;
+    float: left;
+	font-size:13px;
+    margin-right: 2px;
+    text-align: left;
+    width: 100px;
+}
+div#debug input {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    padding: 4px;
+}
+input[type="submit"], #btn-crop {
+    -moz-border-radius: 6px 6px 6px 6px;
+    background-color: #4CA5FE;
+    border: medium none;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-weight: 900;
+    margin: 15px 0 0 483px;
+    padding: 4px;
+}
+.enviar {
+    background-color: #F2F2F2;
+    margin: 12px;
+    padding: 12px;
+    width: 530px;
+}
+
+.dimensoes {
+    color: #666666;
+    float: left;
+    height: 42px;
+    margin: -13px 0 0 410px;
+    position: absolute;
+    width: 125px;
+}
